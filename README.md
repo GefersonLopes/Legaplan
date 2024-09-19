@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Geferson Almeida Lopes
 
-## Getting Started
+[Linkedin](https://www.linkedin.com/in/algeferson/) |
+[Github](https://github.com/GefersonLopes) | 
+[Email](mailto:gefersonjefrey@gmail.com)
 
-First, run the development server:
+# Legaplan Challenge
+
+Este repositório contém o código do frontend para o desafio técnico.
+
+## Tecnologias Utilizadas
+- Docker
+- TypeScript
+- NextJS
+- SCSS
+- App Router
+
+
+## Pré-requisitos
+
+Antes de começar, você precisa ter o seguinte instalado:
+- [Git](https://git-scm.com/)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop)
+- [npm](https://nodejs.org/en/download/package-manager)
+
+## Configuração Inicial
+
+### Clonando o Repositório
+
+clone o repositório e entre na pasta do projeto:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone git@github.com:GefersonLopes/legaplan.git
+cd legaplan
+npm i
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Inicializando o Projeto com Docker
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Seu Docker Desktop deve estar em execução para essa ação, após verificar o Docker, execute o comando para iniciar todos os serviços do docker-compose:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- (Windows)
+```bash
+docker-compose up --build
+```
 
-## Learn More
+- (Linux)
+```bash
+sudo docker compose up --build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Este comando vai fazer a inicialização do frontend.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Acesso ao Serviço
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Frontend
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[Link para acessar o Frontend](http://localhost:3000/)
