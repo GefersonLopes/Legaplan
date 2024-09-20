@@ -1,36 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 
 import styles from "./TaskList.module.scss";
 
 import Button from "../Button/Button";
 import Task from "../Task/Task";
 
-import initialTasks from "@/app/db/database";
-import { ITask } from "@/app/shared/interfaces";
 import taskListCommon from "@/app/shared/common/TasList.common";
 
+import { useModalStore } from "@/app/store/task";
+
 const TaskList: React.FC = () => {
-  const [tasks, setTasks] = useState<ITask[]>(initialTasks);
+  const { tasks, openModal, removeTask, toggleTaskCompletion } =
+    useModalStore();
 
   const taskCompleted = tasks.filter((task) => task.completed);
   const taskNotCompleted = tasks.filter((task) => !task.completed);
 
-  const toggleTaskCompletion = (id: number) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task
-      )
-    );
-  };
-
-  const removeTask = (id: number) => {
-    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
-  };
+  const handleAddTask = () => openModal("add");
 
   const defaultPropsTask = {
     removeTask,
     toggleTaskCompletion,
   };
+
+  const renderWithoutTasks = () => (
+    <p className={styles.noTasks}>{taskListCommon.noTasks}</p>
+  );
 
   return (
     <section className={styles.taskGroup}>
@@ -40,6 +35,7 @@ const TaskList: React.FC = () => {
           {taskNotCompleted.map((task) => (
             <Task key={task.id} task={task} {...defaultPropsTask} />
           ))}
+          {taskNotCompleted.length === 0 && renderWithoutTasks()}
         </ul>
 
         <h3 className={styles.h3}>{taskListCommon.finished}</h3>
@@ -47,9 +43,12 @@ const TaskList: React.FC = () => {
           {taskCompleted.map((task) => (
             <Task key={task.id} task={task} {...defaultPropsTask} />
           ))}
+          {taskCompleted.length === 0 && renderWithoutTasks()}
         </ul>
       </main>
-      <Button className="primary size-lg">{taskListCommon.addTask}</Button>
+      <Button className="primary size-lg" onClick={handleAddTask}>
+        {taskListCommon.addTask}
+      </Button>
     </section>
   );
 };
