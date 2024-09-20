@@ -1,0 +1,75 @@
+@import "../../styles/variables.scss";
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.primary {
+  background: linear-gradient(90deg, $primary-color, $primary-color-linear);
+  color: white;
+
+  &:hover {
+    background: linear-gradient(
+      90deg,
+      $primary-color-hover,
+      $primary-color-hover-linear
+    );
+  }
+
+  &:active {
+    background: linear-gradient(
+      90deg,
+      $primary-color-active,
+      $primary-color-active-linear
+    );
+  }
+}
+
+.secondary {
+  background: $secondary-color;
+  color: #000000;
+
+  &:hover {
+    background: $secondary-color-hover;
+  }
+
+  &:active {
+    background: $secondary-color-active;
+  }
+}
+
+.danger {
+  background: linear-gradient(90deg, $danger-color, $danger-color-linear);
+  color: white;
+
+  &:hover {
+    background: linear-gradient(
+      90deg,
+      $danger-color-hover,
+      $danger-color-hover-linear
+    );
+  }
+
+  &:active {
+    background: linear-gradient(
+      90deg,
+      $danger-color-active,
+      $danger-color-active-linear
+    );
+  }
+}
+
+.size-md {
+  width: 185px;
+}
+
+.size-lg {
+  width: 100%;
+  max-width: 495px;
+}
