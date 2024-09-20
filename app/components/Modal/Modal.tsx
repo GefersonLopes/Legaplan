@@ -10,14 +10,14 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ onClose, onConfirm, type }) => {
+  const isAdd = type === "add";
+
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContent}>
-        <h2>
-          {type === "add" ? modalsCommon.titleCreate : modalsCommon.titleDelete}
-        </h2>
+        <h2>{isAdd ? modalsCommon.titleCreate : modalsCommon.titleDelete}</h2>
         <form>
-          {type === "add" ? (
+          {isAdd ? (
             <div className={styles.inputGroup}>
               <label htmlFor="taskTitle">{modalsCommon.label}</label>
               <input
@@ -36,10 +36,10 @@ const Modal: React.FC<ModalProps> = ({ onClose, onConfirm, type }) => {
               {modalsCommon.cancel}
             </Button>
             <Button
-              className={`${type === "add" ? "primary" : "danger"} size-md`}
+              className={`${isAdd ? "primary" : "danger"} size-md`}
               onClick={onConfirm}
             >
-              {type === "add" ? modalsCommon.confirm : modalsCommon.delete}
+              {isAdd ? modalsCommon.confirm : modalsCommon.delete}
             </Button>
           </div>
         </form>

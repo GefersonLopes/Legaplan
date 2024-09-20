@@ -25,8 +25,10 @@
   box-shadow: 0px 24px 48px rgba(16, 24, 40, 0.5);
 
   @media (min-width: 768px) {
-    width: 495px;
+    width: 450px;
+    min-height: 212px;
     height: fit-content;
+    max-height: 286px;
   }
 
   position: relative;
@@ -41,7 +43,7 @@
 
   .description {
     font-size: 1rem;
-    margin-bottom: 30px;
+    margin: 30px 0;
     text-align: left;
     font-weight: 400;
   }
