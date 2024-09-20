@@ -12,21 +12,21 @@ const Task: React.FC<IHandles> = ({
   task,
 }: IHandles) => {
   return (
-    <li key={task.id} className={styles.taskItem}>
+    <li key={task!.id} className={styles.taskItem}>
       <label>
         <input
           type="checkbox"
-          checked={task.completed}
-          onChange={() => toggleTaskCompletion(task.id)}
+          checked={task!.completed}
+          onChange={() => toggleTaskCompletion(task!.id)}
         />
-        <span className={task.completed ? styles.completed : ""}>
-          {task.title}
+        <span className={task!.completed ? styles.completed : ""}>
+          {task!.title}
         </span>
       </label>
       <button
         className={styles.deleteButton}
-        onClick={() => removeTask(task.id)}
-        aria-label={`Remover ${task.title}`}
+        onClick={() => removeTask(task!.id)}
+        aria-label={`Remover ${task!.title}`}
       >
         <FiTrash color="#B0BBD1" size={22} />
       </button>
