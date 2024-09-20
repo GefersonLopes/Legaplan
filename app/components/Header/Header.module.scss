@@ -42,6 +42,10 @@
     font-size: medium;
     font-weight: 500;
     color: #000000;
+
+    @media (min-width: 768px) {
+      font-size: x-large;
+    }
   }
 
   .date {
